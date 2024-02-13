@@ -1,0 +1,27 @@
+spring:
+  data:
+    mongodb:
+      database: ${STAGING_MONGO_DATABASE:env.STAGING_MONGO_DATABASE}
+      uri: mongodb+srv://${STAGING_MONGO_USER:env.STAGING_MONGO_USER}:${STAGING_MONGO_PASSWORD:env.STAGING_MONGO_PASSWORD}@${STAGING_MONGO_CLUSTER:env.STAGING_MONGO_CLUSTER}
+  application:
+    name: CHAT-SERVICE
+  config:
+    import: configserver:${CONFIG_SERVER_URL:http://localhost:9296}
+  kafka:
+    bootstrap-servers: 34.125.100.102:9092
+    consumer:
+      group-id: GroupID2
+
+server:
+  port: 8081
+
+jwt:
+  secret: ${JWT_SECRET:env.JWT_SECRET}
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    fetch-registry: true
+#    registry-with-eureka: true
+#    service-url:
+#      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
