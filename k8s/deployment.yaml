@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: chat-service-app
-          image: pohengshen96/chatservice
+          image: IMAGE_URL/chatservice
           imagePullPolicy: Always
           ports:
             - containerPort: 8081
